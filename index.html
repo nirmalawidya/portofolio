@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portofolio – Nirmala Widya Puspa Karina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Palette: Sleek Dark & Crimson Tech Red */
+            --bg: #090A0F;
+            --bg-alt: #0F111A;
+            --card: #151824;
+            --card-hover: #1C2030;
+            --ink: #F8FAFC;
+            --muted: #94A3B8;
+            --line: rgba(255, 255, 255, 0.08);
+            --line-red: rgba(239, 68, 68, 0.25);
+            
+            --primary: #EF4444;
+            --primary-d: #DC2626;
+            --primary-soft: rgba(239, 68, 68, 0.12);
+            --primary-glow: rgba(239, 68, 68, 0.35);
+
+            --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 32px);
+        }
+
+        /* 1 Tema Pas 1 Layar Penuh di Desktop */
+        section {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 0;
+            position: relative;
+        }
+
+        /* Pill Badge */
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 13px;
+            border-radius: 9999px;
+            background: var(--primary-soft);
+            color: #FCA5A5;
+            font-size: clamp(0.72rem, 1.6vw, 0.78rem);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 14px;
+            border: 1px solid var(--line-red);
+        }
+
+        .pill::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+        }
+
+        h2 {
+            font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+            color: var(--ink);
+        }
+
+        .center {
+            text-align: center;
+            margin-bottom: clamp(28px, 4vw, 40px);
+        }
+
+        .center h2::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3.5px;
+            border-radius: 4px;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary-glow);
+            margin: 12px auto 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 11px 22px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: clamp(0.85rem, 1.8vw, 0.92rem);
+            border: 1.5px solid transparent;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-d));
+            color: #ffffff;
+            box-shadow: 0 4px 16px var(--primary-glow);
+        }
+
+        .btn.primary:hover {
+            box-shadow: 0 6px 22px rgba(239, 68, 68, 0.55);
+        }
+
+        .btn.ghost {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--line);
+            color: var(--ink);
+        }
+
+        .btn.ghost:hover {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+            color: #ffffff;
+        }
+
+        /* Navbar */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            height: 70px;
+            background: rgba(9, 10, 15, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .logo b {
+            color: var(--primary);
+            font-family: var(--font-mono);
+            text-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .nav ul {
+            display: flex;
+            gap: clamp(14px, 2.2vw, 26px);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .nav ul a {
+            transition: color 0.15s ease;
+        }
+
+        .nav ul a:hover {
+            color: var(--primary);
+        }
+
+        .nav .btn {
+            padding: 8px 18px;
+            font-size: 0.84rem;
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 20%;
+            right: 15%;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            filter: blur(70px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.85fr;
+            gap: clamp(32px, 5vw, 64px);
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-weight: 800;
+            font-size: clamp(2rem, 4.4vw, 3.2rem);
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, #FF6B6B 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 48ch;
+            font-size: clamp(0.92rem, 1.8vw, 1.02rem);
+            margin: 0 0 26px 0;
+            line-height: 1.65;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* Visual Frame */
+        .visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .visual-frame {
+            position: relative;
+            width: clamp(210px, 24vw, 300px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(145deg, rgba(239, 68, 68, 0.45), rgba(255, 255, 255, 0.05));
+            box-shadow: 0 10px 35px -5px var(--primary-glow);
+        }
+
+        .disc {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            background: #1E202B;
+            border: 3px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .disc img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ================= ABOUT ME ================= */
+        #about {
+            background: var(--bg-alt);
+            border-block: 1px solid var(--line);
+        }
+
+        .about-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto clamp(32px, 4vw, 44px);
+        }
+
+        .about-header h2::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3.5px;
+            border-radius: 4px;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary-glow);
+            margin: 14px auto 0;
+        }
+
+        .about-header p {
+            color: var(--muted);
+            margin-top: 18px;
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+            line-height: 1.75;
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .box {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px 24px;
+            transition: all 0.25s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-3px);
+            border-color: var(--line-red);
+            box-shadow: 0 8px 24px -6px rgba(239, 68, 68, 0.15);
+        }
+
+        .box h3 {
+            font-size: 0.98rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box h3::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 2px;
+            background: var(--primary);
+            box-shadow: 0 0 6px var(--primary);
+        }
+
+        .box li {
+            padding: 10px 0;
+            border-top: 1px solid var(--line);
+            font-size: 0.9rem;
+        }
+
+        .box li:first-child {
+            border-top: 0;
+            padding-top: 0;
+        }
+
+        .box small {
+            display: block;
+            color: var(--muted);
+            margin-top: 3px;
+            font-size: 0.8rem;
+        }
+
+        /* ================= WHAT I CAN DO ================= */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-bottom: 28px;
+        }
+
+        .skill-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 26px 22px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--line-red);
+            box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.2);
+            background: var(--card-hover);
+        }
+
+        .skill-card .ico {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--primary-soft);
+            border: 1px solid var(--line-red);
+            display: grid;
+            place-items: center;
+            margin-bottom: 18px;
+        }
+
+        .skill-card .ico svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--primary);
+            fill: none;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            flex: 1;
+        }
+
+        .skill-badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: auto;
+            border-top: 1px solid var(--line);
+            padding-top: 16px;
+        }
+
+        .skill-badge {
+            font-size: 0.78rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            color: #E2E8F0;
+        }
+
+        /* Baris Bawah: Tools & Ekosistem */
+        .tools-bar {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .tools-bar span {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tools-bar span::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tools-list li {
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .tools-list li:hover {
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        /* ================= ACHIEVEMENT & PROYEK ================= */
+        #achievement {
+            background: var(--bg-alt);
+            border-block: 1px solid var(--line);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .ach {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+        }
+
+        .ach:hover {
+            transform: translateY(-4px);
+            border-color: var(--line-red);
+            box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.18);
+        }
+
+        .cover {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: #1A1D29;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .cover img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.35s ease;
+        }
+
+        .ach:hover .cover img {
+            transform: scale(1.05);
+        }
+
+        .cover::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(9, 10, 15, 0.65) 0%, rgba(9, 10, 15, 0.1) 45%, rgba(9, 10, 15, 0.85) 100%);
+            pointer-events: none;
+        }
+
+        .cover .tag-badge {
+            position: absolute;
+            top: 12px;
+            left: 14px;
+            z-index: 2;
+            background: rgba(9, 10, 15, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--line-red);
+            color: #FCA5A5;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 9999px;
+        }
+
+        .cover .year-badge {
+            position: absolute;
+            bottom: 12px;
+            right: 14px;
+            z-index: 2;
+            background: var(--primary);
+            color: #ffffff;
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .ach .body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .ach h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .ach .org {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .ach p {
+            font-size: 0.88rem;
+            color: #CBD5E1;
+            margin-top: 4px;
+            flex: 1;
+        }
+
+        /* ================= CONTACT ================= */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: clamp(20px, 3vw, 28px);
+            align-items: stretch;
+        }
+
+        .contact-grid p {
+            color: var(--muted);
+            margin: 12px 0 20px;
+            max-width: 38ch;
+            font-size: 0.92rem;
+        }
+
+        .quote {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quote .mark {
+            font-size: 2.6rem;
+            line-height: 0.8;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .quote p {
+            margin: 0 0 16px 0;
+            color: var(--ink);
+            font-weight: 500;
+            font-size: 0.92rem;
+        }
+
+        .quote .btn {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        .follow h3 {
+            font-size: 0.74rem;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .links {
+            display: grid;
+            gap: 10px;
+        }
+
+        .links a {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .links a:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(239, 68, 68, 0.2);
+        }
+
+        .links small {
+            display: block;
+            color: var(--muted);
+            font-size: 0.74rem;
+            font-weight: 600;
+        }
+
+        .links b {
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--ink);
+            word-break: break-all;
+        }
+
+        footer {
+            padding: 24px 0;
+            border-top: 1px solid var(--line);
+            background: var(--bg);
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ================= RESPONSIVE QUERY ================= */
+        @media (max-width: 992px) {
+            section {
+                min-height: auto;
+                padding: 56px 0;
+            }
+
+            .nav ul {
+                display: none;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 36px;
+            }
+
+            .hero p {
+                margin: 0 auto 24px;
+            }
+
+            .actions {
+                justify-content: center;
+            }
+
+            .visual {
+                order: -1;
+            }
+
+            .info,
+            .skills-grid,
+            .cards,
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+
+            .contact-grid div:first-child {
+                grid-column: span 2;
+                text-align: center;
+            }
+
+            .contact-grid p {
+                margin: 10px auto 18px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            section {
+                padding: 44px 0;
+            }
+
+            .info,
+            .skills-grid,
+            .cards,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid div:first-child {
+                grid-column: span 1;
+            }
+
+            .tools-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .actions .btn {
+                width: 100%;
+            }
+
+            footer .wrap {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============ NAVBAR ============ -->
+    <header>
+        <div class="wrap nav">
+            <a class="logo" href="#home"><b>&lt;/&gt;</b> Nirmalawidya</a>
+            <nav aria-label="Navigasi utama">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">What I Can Do</a></li>
+                    <li><a href="#achievement">Achievement</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a class="btn primary" href="#contact">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="home">
+            <div class="wrap hero-grid">
+                <div>
+                    <span class="pill">SISTEM INFORMASI – UNIVERSITAS NEGERI SURABAYA</span>
+                    <h1>Hi, saya <em>Nirmala Widya Puspa Karina</em></h1>
+                    <p>Mahasiswa Sistem Informasi UNESA yang antusias di bidang teknologi digital dan desain. Terbiasa bekerja secara mandiri maupun tim dalam merancang antarmuka UI/UX dan mengembangkan solusi web yang inovatif.</p>
+                    
+                    <div class="actions">
+                        <a class="btn primary" href="#achievement">Lihat Prestasi &amp; Proyek</a>
+                        <!-- Link Download CV dengan Penamaan Otomatis -->
+                        <a class="btn ghost" href="NirmalaWidya_CVATS.pdf" download="CV_Nirmala_Widya.pdf" target="_blank" rel="noopener">Download CV ATS</a>
+                    </div>
+                </div>
+
+                <div class="visual">
+                    <div class="visual-frame">
+                        <div class="disc">
+                            <img src="foto/nirmala.png" alt="Foto Nirmala Widya Puspa Karina">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ABOUT ME (MINIMALIS & ELEGAN) ============ -->
+        <section id="about">
+            <div class="wrap">
+                <!-- Deskripsi Header Tengah yang Bersih -->
+                <div class="about-header">
+                    <span class="pill">ABOUT ME</span>
+                    <h2>Kreativitas, Logika, dan Solusi Digital</h2>
+                    <p>Memiliki latar belakang Rekayasa Perangkat Lunak (RPL) dari SMK Telkom Malang dan melanjutkan studi di S1 Sistem Informasi Universitas Negeri Surabaya. Memiliki semangat belajar yang tinggi, mudah beradaptasi, serta berkomitmen menghadirkan produk digital yang fungsional, terstruktur, dan estetis.</p>
+                </div>
+
+                <!-- 3 Kotak Informasi Utama -->
+                <div class="info">
+                    <div class="box">
+                        <h3>Pendidikan</h3>
+                        <ul>
+                            <li><strong>Universitas Negeri Surabaya</strong><small>S1 Sistem Informasi · 2026 – Sekarang</small></li>
+                            <li><strong>SMK Telkom Malang</strong><small>Rekayasa Perangkat Lunak (RPL) · 2023 – 2026</small></li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>Organisasi</h3>
+                        <ul>
+                            <li><strong>Moklet Art Club (MAC)</strong><small>Anggota · 2023 – 2026</small></li>
+                            <li><strong>Bendahara Kepanitiaan</strong><small>Gerbang Mimpi 2024 &amp; Moklet Got Talent 2024</small></li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>Minat &amp; Fokus</h3>
+                        <ul>
+                            <li><strong>UI/UX Design</strong><small>Desain antarmuka, riset pengguna, &amp; prototipe interaktif</small></li>
+                            <li><strong>Web Development</strong><small>Pengembangan website, implementasi kode, &amp; sistem fungsional</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ WHAT I CAN DO (3 KARTU KOMPETENSI) ============ -->
+        <section id="skills">
+            <div class="wrap">
+                <div class="center">
+                    <span class="pill">WHAT I CAN DO</span>
+                    <h2>Keahlian &amp; Kemampuan</h2>
+                </div>
+
+                <!-- 3 Pilar Kompetensi -->
+                <div class="skills-grid">
+                    <!-- Kartu 1: UI/UX -->
+                    <div class="skill-card">
+                        <div class="ico">
+                            <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                        </div>
+                        <h3>UI/UX &amp; Desain Produk</h3>
+                        <p>Merancang pengalaman pengguna intuitif mulai dari riset kebutuhan, wireframing, alur kerja sistem, hingga prototype interaktif siap uji.</p>
+                        <div class="skill-badge-group">
+                            <span class="skill-badge">Figma</span>
+                            <span class="skill-badge">Wireframing</span>
+                            <span class="skill-badge">Prototyping</span>
+                            <span class="skill-badge">User Flow</span>
+                        </div>
+                    </div>
+
+                    <!-- Kartu 2: Web & Backend -->
+                    <div class="skill-card">
+                        <div class="ico">
+                            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </div>
+                        <h3>Web &amp; Backend Dev</h3>
+                        <p>Mengimplementasikan antarmuka web modern yang responsif serta membangun RESTful API backend yang aman dan terstruktur.</p>
+                        <div class="skill-badge-group">
+                            <span class="skill-badge">HTML / CSS</span>
+                            <span class="skill-badge">TypeScript</span>
+                            <span class="skill-badge">Node.js</span>
+                            <span class="skill-badge">Prisma ORM</span>
+                        </div>
+                    </div>
+
+                    <!-- Kartu 3: Analisis Bisnis & Sistem -->
+                    <div class="skill-card">
+                        <div class="ico">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+                        </div>
+                        <h3>Analisis Sistem &amp; Bisnis</h3>
+                        <p>Menyelaraskan solusi teknologi dengan model bisnis digital nyata, penyusunan proposal inovasi, serta koordinasi kepanitiaan acara.</p>
+                        <div class="skill-badge-group">
+                            <span class="skill-badge">Business Plan</span>
+                            <span class="skill-badge">Sistem Informasi</span>
+                            <span class="skill-badge">Kerja Tim</span>
+                            <span class="skill-badge">Manajemen Acara</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Baris Tools Pendukung -->
+                <div class="tools-bar">
+                    <span>Perangkat Lunak Pendukung :</span>
+                    <ul class="tools-list">
+                        <li>Figma</li>
+                        <li>VS Code</li>
+                        <li>Git &amp; GitHub</li>
+                        <li>Postman</li>
+                        <li>Canva</li>
+                        <li>CapCut</li>
+                        <li>Google Workspace / Spreadsheet</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ACHIEVEMENT & PROYEK ============ -->
+        <section id="achievement">
+            <div class="wrap">
+                <div class="center">
+                    <span class="pill">ACHIEVEMENT &amp; PROJECTS</span>
+                    <h2>Prestasi &amp; Pengalaman Proyek</h2>
+                </div>
+                <div class="cards">
+                    <!-- Kartu 1: Prestasi Kompetisi -->
+                    <article class="ach">
+                        <div class="cover">
+                            <img src="foto/bismillahuwp.jpeg" alt="Bukti Juara 2 ECOFEB Business Plan" onerror="this.src='https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&auto=format&fit=crop&q=80'">
+                            <span class="tag-badge">Kompetisi Bisnis</span>
+                            <span class="year-badge">2025</span>
+                        </div>
+                        <div class="body">
+                            <h3>Juara 2 ECOFEB Business Plan</h3>
+                            <div class="org">Universitas Wijaya Putra Surabaya</div>
+                            <p>Mengembangkan ide inovasi "LogiChains", merancang antarmuka UI/UX, dan mempresentasikan solusi bisnis digital di hadapan dewan juri.</p>
+                        </div>
+                    </article>
+
+                    <!-- Kartu 2: Proyek Backend UKK -->
+                    <article class="ach">
+                        <div class="cover">
+                            <img src="foto/kantin.jpg" alt="Bukti Proyek Kantin Online UKK" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80'">
+                            <span class="tag-badge">Proyek Backend UKK</span>
+                            <span class="year-badge">2026</span>
+                        </div>
+                        <div class="body">
+                            <h3>Backend Aplikasi Kantin Online</h3>
+                            <div class="org">SMK Telkom Malang</div>
+                            <p>Membangun arsitektur backend menggunakan Node.js, TypeScript, dan Prisma ORM dengan fitur autentikasi, pengelolaan menu, pemesanan, dan transaksi.</p>
+                        </div>
+                    </article>
+
+                    <!-- Kartu 3: Sertifikasi & Prestasi -->
+                    <article class="ach">
+                        <div class="cover">
+                            <img src="foto/gemini.png" alt="Bukti Sertifikasi Google Gemini" onerror="this.src='https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&auto=format&fit=crop&q=80'">
+                            <span class="tag-badge">Sertifikasi</span>
+                            <span class="year-badge">2026</span>
+                        </div>
+                        <div class="body">
+                            <h3>Google Gemini</h3>
+                            <div class="org">Google</div>
+                            <p>Sertifikasi Google Gemini (2026)</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section id="contact">
+            <div class="wrap contact-grid">
+                <div>
+                    <span class="pill">LET'S CONNECT</span>
+                    <h2>Tertarik Berkolaborasi?</h2>
+                    <p>Terbuka untuk kesempatan magang, proyek pengembangan produk digital, dan kolaborasi tim.</p>
+                    <a class="btn primary" href="mailto:nirmalaawdya@gmail.com">Kirim Pesan Email</a>
+                </div>
+
+                <div class="quote">
+                    <span class="mark">“</span>
+                    <p>Terus belajar dan beradaptasi untuk menciptakan solusi digital yang bermanfaat dan berdampak nyata.</p>
+                    <!-- Link Download CV Bawah -->
+                    <a class="btn ghost" href="NirmalaWidya_CVATS.pdf" download="CV_Nirmala_Widya.pdf" target="_blank" rel="noopener">Unduh CV ATS (PDF)</a>
+                </div>
+
+                <div class="follow">
+                    <h3>KONTAK &amp; TAUTAN RESMI</h3>
+                    <div class="links">
+                        <a href="mailto:nirmalaawdya@gmail.com">
+                            <div><small>EMAIL</small><b>nirmalaawdya@gmail.com</b></div>
+                        </a>
+                        <a href="https://wa.me/6285784072124" target="_blank" rel="noopener">
+                            <div><small>WHATSAPP / TELEPON</small><b>085784072124</b></div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/nirmala-widya" target="_blank" rel="noopener">
+                            <div><small>LINKEDIN</small><b>linkedin.com/in/nirmala-widya</b></div>
+                        </a>
+                        <a href="https://github.com/nirmalawidya" target="_blank" rel="noopener">
+                            <div><small>GITHUB</small><b>github.com/nirmalawidya</b></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="wrap">
+            <span>© 2026 Nirmala Widya Puspa Karina. Surabaya, Jawa Timur.</span>
+            <span>S1 Sistem Informasi – Universitas Negeri Surabaya</span>
+        </div>
+    </footer>
+
+</body>
+
+</html>
